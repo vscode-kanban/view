@@ -16,7 +16,7 @@ npm start
 
 ### Dependencies
 
-' [CodeMirror](https://codemirror.net/)
+* [CodeMirror](https://codemirror.net/)
 * [filterex](https://github.com/m93a/filtrex)
 * [highlight.js](https://highlightjs.org/)
 * [i18next](https://react.i18next.com/)
