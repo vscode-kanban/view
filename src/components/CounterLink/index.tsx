@@ -15,15 +15,31 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-import './lang';
-import App from './App';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.scss';
+import React, { PropsWithChildren } from 'react';
+import { useDispatch } from 'react-redux';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+interface ICounterLinkProps {
+  action: any;
+  text: string;
+}
+
+const styles = {
+  link: {
+    cursor: 'pointer'
+  },
+};
+
+const CounterLink = (props: PropsWithChildren<ICounterLinkProps>) => {
+  const dispatch = useDispatch();
+
+  return (
+    <a className="App-link" style={styles.link} onClick={() => dispatch(props.action)}>
+      {props.text}
+    </a>
+  );
+};
+
+/**
+ * A counter link.
+ */
+export default CounterLink;

@@ -15,15 +15,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-import './lang';
-import App from './App';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.scss';
+import { ILang } from ".";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const en: ILang = {
+  counter: 'Counter'
+};
+
+/**
+ * English language strings.
+ */
+export default en;

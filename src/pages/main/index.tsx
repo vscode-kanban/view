@@ -16,44 +16,26 @@
  */
 
 import * as actions from '../../store/actions';
+import CounterLink from '../../components/CounterLink';
 import logo from '../../assets/img/logo.svg';
 import React, { PropsWithChildren } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { IState } from '../../store';
 import './index.scss';
-
-interface ICounterLinkProps {
-  action: any;
-  text: string;
-}
+import { useTranslation } from 'react-i18next';
 
 interface IMainPageProps {
 }
 
-const styles = {
-  counterLink: {
-    cursor: 'pointer'
-  },
-};
-
-const CounterLink = (props: PropsWithChildren<ICounterLinkProps>) => {
-  const dispatch = useDispatch();
-
-  return (
-    <a className="App-link" style={styles.counterLink} onClick={() => dispatch(props.action)}>
-      {props.text}
-    </a>
-  );
-};
-
 const MainPage = (props: PropsWithChildren<IMainPageProps>) => {
   const counter = useSelector((state: IState) => state.test.counter);
+  const { t } = useTranslation();
 
   return (
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
       <p>
-        Counter (<CounterLink action={actions.incrementCounter()} text="+" /> / <CounterLink action={actions.decrementCounter()} text="-" />): {counter}
+        {t('counter')} (<CounterLink action={actions.incrementCounter()} text="+" /> / <CounterLink action={actions.decrementCounter()} text="-" />): {counter}
       </p>
     </header>
   );
