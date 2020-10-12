@@ -15,24 +15,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+.Markdown {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+  h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+  }
 
-.CodeMirror {
-  text-align: left !important; 
-
-  pre.CodeMirror-line {
-    padding-left: 1rem;
+  p {
+    margin: 0;
   }
 }

@@ -16,9 +16,12 @@
  */
 
 import * as actions from '../../store/actions';
+import CodeEditor from '../../components/CodeEditor';
 import CounterLink from '../../components/CounterLink';
 import logo from '../../assets/img/logo.svg';
-import React, { PropsWithChildren } from 'react';
+import Markdown from '../../components/Markdown';
+import React, { PropsWithChildren, useState } from 'react';
+import SourceCode from '../../components/SourceCode';
 import { useSelector } from 'react-redux';
 import { IState } from '../../store';
 import './index.scss';
@@ -27,9 +30,35 @@ import { useTranslation } from 'react-i18next';
 interface IMainPageProps {
 }
 
+const exampleMarkdown = `# This is
+## a Markdown test
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium accusantium reiciendis a unde? Dicta est laborum et minus asperiores ea.`;
+
+const exampleSourceCode = `# Bellum
+
+## Gallicum
+
+Gallia est omnis divisa in partes tres, quarum unam incolunt Belgae, aliam Aquitani, tertiam qui ipsorum lingua Celtae, nostra Galli appellantur.
+`;
+
+const styles = {
+  markdown: {
+    backgroundColor: '#cb7832',
+    width: '640px'
+  },
+  sourceCode: {
+    width: '640px'
+  },
+};
+
 const MainPage = (props: PropsWithChildren<IMainPageProps>) => {
   const counter = useSelector((state: IState) => state.test.counter);
+  const [sourceCode, setSourceCode] = useState('');
   const { t } = useTranslation();
+
+  const onCodeChange = (newValue: string) => {
+    setSourceCode(newValue);
+  };
 
   return (
     <header className="App-header">
@@ -37,6 +66,10 @@ const MainPage = (props: PropsWithChildren<IMainPageProps>) => {
       <p>
         {t('counter')} (<CounterLink action={actions.incrementCounter()} text="+" /> / <CounterLink action={actions.decrementCounter()} text="-" />): {counter}
       </p>
+
+      <CodeEditor onChange={onCodeChange} options={{ mode: 'markdown' }} value={sourceCode} width="640px" />
+      <SourceCode lang="markdown" style={styles.sourceCode}>{exampleSourceCode}</SourceCode>
+      <Markdown style={styles.markdown}>{exampleMarkdown}</Markdown>
     </header>
   );
 };
