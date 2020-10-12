@@ -1,0 +1,3 @@
+
+Icons:
+    - /logo.svg (Erik Ragnar Eliasson; http://www.erikeliasson.io/)
