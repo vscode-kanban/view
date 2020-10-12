@@ -15,14 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-import App from './App';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.scss';
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+/**
+ * Indicates if app currently in development mode or not.
+ */
+export const IS_DEV = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';

@@ -15,14 +15,27 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-import App from './App';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.scss';
+import { Dispatch } from "redux";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+export const TEST_DECREMENT_COUNTER = 'TEST_DECREMENT_COUNTER';
+export const TEST_INCREMENT_COUNTER = 'TEST_INCREMENT_COUNTER';
+
+/**
+ * Decrements the counter after 250 ms.
+ */
+export function decrementCounter() {
+  // Redux Thunk
+  return (dispatch: Dispatch) => {
+    setTimeout(() => {
+      dispatch({ type: TEST_DECREMENT_COUNTER, payload: 3 });
+    }, 250);
+  };
+}
+
+/**
+ * Increments the counter.
+ */
+export function incrementCounter() {
+  // sync way
+  return { type: TEST_INCREMENT_COUNTER, payload: 1 };
+}

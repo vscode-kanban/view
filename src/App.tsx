@@ -15,22 +15,28 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import './App.scss';
 import MainPage from './pages/main';
-import { BrowserRouter } from 'react-router-dom';
+import React from 'react';
+import store from './store';
+import { Provider as StoreProvider } from 'react-redux';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import './App.scss';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Switch>
-          <Route exact path='/' render={() => <MainPage />} />
-        </Switch>
-      </div>
-    </BrowserRouter>
+    <StoreProvider store={store}>
+      <BrowserRouter>
+        <div className="App">
+          <Switch>
+            <Route exact path='/' render={() => <MainPage />} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </StoreProvider>
   );
 }
 
+/**
+ * The app component.
+ */
 export default App;

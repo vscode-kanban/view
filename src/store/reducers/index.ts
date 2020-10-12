@@ -15,14 +15,14 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-import App from './App';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.scss';
+import testReducer from '../reducers/test';
+import { combineReducers } from 'redux';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const rootReducer = {
+  test: testReducer
+};
+
+/**
+ * The root reducer.
+ */
+export default combineReducers(rootReducer);

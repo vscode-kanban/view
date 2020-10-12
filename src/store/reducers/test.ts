@@ -15,14 +15,42 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-import App from './App';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.scss';
+import * as actions from '../actions';
+import { Reducer } from 'redux';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+/**
+ * State of category 'test'.
+ */
+export interface ITestState {
+  /**
+   * The current counter value.
+   */
+  counter: number;
+}
+
+const initialState: ITestState = {
+  counter: 0,
+};
+
+const testReducer: Reducer<ITestState> = (state = initialState, action) => {
+  if (action.type === actions.TEST_DECREMENT_COUNTER) {
+    return {
+      ...state,
+      counter: state.counter - action.payload
+    };
+  }
+
+  if (action.type === actions.TEST_INCREMENT_COUNTER) {
+    return {
+      ...state,
+      counter: state.counter + action.payload
+    };
+  }
+
+  return state;
+};
+
+/**
+ * The test reducer.
+ */
+export default testReducer;
