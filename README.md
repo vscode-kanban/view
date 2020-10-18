@@ -1,3 +1,5 @@
+> This is only a test branch by [mkloubert](https://github.com/mkloubert). It is NOT used to work on a new view. If you like to contribute and develop a new view for the extension, please read the issue [🔨🔨🔨 [REFACTORING] New Board Design 🔨🔨🔨](https://github.com/mkloubert/vscode-kanban/issues/54) (but you can use the branch as base for your own work, of course ;-).
+
 # vscode-kanban (view)
 
 > WebView part of Kanban for Visual Studio Code extension, written with [React](https://reactjs.org/) and in [TypeScript](https://www.typescriptlang.org/).
